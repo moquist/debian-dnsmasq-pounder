@@ -6,24 +6,19 @@
 1. [virtualbox](http://virtualbox.com]
 1. [docker](http://docker.com]
 
+## Configuration
+
+* dnsmasq is configured by ```debian-dnsmasq-pounder/dnsmasq-conf/dnsmasq.conf```
+* dnsmasq is configured (by default) to serve only the records included in ```debian-dnsmasq-pounder/dnsmasq-conf/hosts```
+
 ## Usage
-
-```vagrant up``` to start dnsmasq (in a Debian docker image) on localhost port
-60053.
-
-* dnsmasq is configured by
-  ```debian-dnsmasq-pounder/dnsmasq-conf/dnsmasq.conf```
-* dnsmasq is configured (by default) to serve only the records included in
-  ```debian-dnsmasq-pounder/dnsmasq-conf/hosts```
-
-### Example
 
 1. clone this repo
 1. ```cd``` into the repo dir
 1. ```vagrant up```
 1. When it's finished, ```dig @localhost -p60053 one```.
-1. ```echo '1.2.3.4 another.record' >>
-   debian-dnsmasq-pounder/dnsmasq-conf/hosts```
+1. ```echo '1.2.3.4 another.record' >> debian-dnsmasq-pounder/dnsmasq-conf/hosts```
+1. ```docker -H tcp://localhost:62375 kill -s HUP $(docker -H tcp://localhost:62375 ps -q)```
 1. ```dig @localhost -p60053 another.record```
 
 
