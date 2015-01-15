@@ -8,9 +8,9 @@ forwarding the following ports:
 
 ## Dependencies
 
-1. [vagrant](http://vagrantup.com]
-1. [virtualbox](http://virtualbox.com]
-1. [docker](http://docker.com]
+1. [vagrant](http://vagrantup.com)
+1. [virtualbox](http://virtualbox.com)
+1. [docker](http://docker.com)
 
 ## Configuration
 
