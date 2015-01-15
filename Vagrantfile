@@ -10,11 +10,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder ".", "/vagrant"
 
   config.vm.provision :docker do |d|
-    d.build_image "/vagrant/debian-dnsmasq-pounder",
+    d.build_image "/vagrant/vmfiles",
       args: "-t moquist/debian-dnsmasq-pounder"
     d.run "dnsmasq",
       image: "moquist/debian-dnsmasq-pounder",
-      args: "-p 60053:60053/udp -v /vagrant/debian-dnsmasq-pounder/dnsmasq-conf:/opt/dnsmasq-conf:ro",
+      args: "-p 60053:60053/udp -v /vagrant/vmfiles/dnsmasq-conf:/opt/dnsmasq-conf:ro",
       cmd: "/usr/sbin/dnsmasq -C /opt/dnsmasq-conf/dnsmasq.conf -d"
   end
 

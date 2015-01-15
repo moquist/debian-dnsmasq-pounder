@@ -1,4 +1,4 @@
-# debian-dnsmasq-pounder
+# vmfiles
 
 This project stands up dnsmasq inside docker inside virtualbox via vagrant,
 forwarding the following ports:
@@ -14,8 +14,8 @@ forwarding the following ports:
 
 ## Configuration
 
-* dnsmasq is configured by ```debian-dnsmasq-pounder/dnsmasq-conf/dnsmasq.conf```
-* dnsmasq is configured (by default) to serve only the records included in ```debian-dnsmasq-pounder/dnsmasq-conf/hosts```
+* dnsmasq is configured by ```vmfiles/dnsmasq-conf/dnsmasq.conf```
+* dnsmasq is configured (by default) to serve only the records included in ```vmfiles/dnsmasq-conf/hosts```
 
 ## Usage
 
@@ -24,7 +24,7 @@ forwarding the following ports:
 1. ```vagrant up```
  1. This will take some time, more/less depending on your bandwidth and system. It takes about 90 seconds on my system.
 1. When it's finished, ```dig @localhost -p60053 one```.
-1. ```echo '1.2.3.4 another.record' >> debian-dnsmasq-pounder/dnsmasq-conf/hosts```
+1. ```echo '1.2.3.4 another.record' >> vmfiles/dnsmasq-conf/hosts```
 1. ```docker -H tcp://localhost:62375 kill -s HUP $(docker -H tcp://localhost:62375 ps -q)```
 1. ```dig @localhost -p60053 another.record```
 
