@@ -22,6 +22,7 @@ forwarding the following ports:
 1. clone this repo
 1. ```cd``` into the repo dir
 1. ```vagrant up```
+ 1. This will take some time, more/less depending on your bandwidth and system. It takes about 90 seconds on my system.
 1. When it's finished, ```dig @localhost -p60053 one```.
 1. ```echo '1.2.3.4 another.record' >> debian-dnsmasq-pounder/dnsmasq-conf/hosts```
 1. ```docker -H tcp://localhost:62375 kill -s HUP $(docker -H tcp://localhost:62375 ps -q)```
