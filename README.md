@@ -1,5 +1,11 @@
 # debian-dnsmasq-pounder
 
+This project stands up dnsmasq inside docker inside virtualbox via vagrant,
+forwarding the following ports:
+
+* localhost:60053/udp is forwarded to dnsmasq
+* localhost:62375/tcp is forwarded to docker in the VM
+
 ## Dependencies
 
 1. [vagrant](http://vagrantup.com]
