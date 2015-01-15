@@ -19,6 +19,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.network :forwarded_port, guest: 2375, host: 62375
-  config.vm.network :forwarded_port, guest: 2376, host: 62376
   config.vm.network :forwarded_port, guest: 60053, host: 60053, protocol: 'udp'
 end
