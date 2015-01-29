@@ -9,6 +9,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.synced_folder ".", "/vagrant"
 
+  # This makes --provision indempotent.
+  config.vm.provision "shell", inline: <<-SHELL
+    docker stop dnsmasq || true
+    docker rm dnsmasq || true
+  SHELL
+
   config.vm.provision :docker do |d|
     d.build_image "/vagrant/vmfiles",
       args: "-t moquist/debian-dnsmasq-pounder"
