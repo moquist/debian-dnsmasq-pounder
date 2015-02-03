@@ -1,4 +1,4 @@
-# vmfiles
+# debian-dnsmasq-pounder
 
 This project stands up dnsmasq inside docker inside virtualbox via vagrant,
 forwarding the following ports:
